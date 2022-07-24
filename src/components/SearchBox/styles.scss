@@ -1,0 +1,46 @@
+$background-color: #FFE600;
+$font-size: 18px;
+$search-box-width: 80%;
+
+header {
+  background-color: $background-color;
+  //display: flex;
+  //place-content: center;
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    max-width: $search-box-width;
+    padding: 8px 0;
+  }
+
+  form {
+    display: flex;
+    width: 100%;
+    margin-left: 24px;
+
+    input[type=text] {
+      font-size: $font-size;
+      border: 0;
+      padding: 12px;
+      width: 100%;
+      outline: none;
+    }
+
+    button {
+      border: 0;
+      padding: 12px;
+      cursor: pointer;
+
+      .button-search {
+        background-image: url('../../assets/ic_Search.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        display: block;
+        height: 20px;
+        width: 20px;
+      }
+    }
+  }
+}
