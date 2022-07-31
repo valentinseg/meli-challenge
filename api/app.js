@@ -24,4 +24,7 @@ app.use(responseInterceptor);
 const itemRoutes = require('./routes/items');
 app.use('/api/items', itemRoutes);
 
+const categoryRoutes = require('./routes/categories');
+app.use('/api/categories', categoryRoutes);
+
 module.exports = app;

@@ -1,0 +1,22 @@
+@use 'src/global';
+
+.breadcrumb {
+  color: #999999;
+  font-size: 14px;
+  margin: 16px auto;
+  padding: 0;
+  width: global.$container-width;
+
+  .breadcrumb-item {
+    display: inline-block;
+
+    .breadcrumb-item-divider {
+      float: right;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  }
+  .breadcrumb-item:last-child {
+    font-weight: bold;
+  }
+}

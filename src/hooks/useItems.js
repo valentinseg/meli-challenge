@@ -2,25 +2,29 @@ import { useEffect, useState } from "react";
 
 import { getItemsByKeyword } from "../services/items";
 
-const useItems = ({ keyword }) => {
+const useItems = ({ keyword, category }) => {
     const [loading, setLoading] = useState(false);
     const [items, setItems] = useState([]);
+    const [categories, setCategories] = useState([]);
+
+    const isValidParam = (param) => param && param !== '';
 
     useEffect(() => {
-        if (keyword && keyword !== '') {
+        if (isValidParam(keyword) || isValidParam(category)) {
             setLoading(true);
-            getItemsByKeyword(keyword).then((response) => {
+            getItemsByKeyword(keyword, category).then((response) => {
                 const { data } = response;
                 if (data.items && data.items.length > 0) setItems(data.items);
+                if (data.categories && data.categories.length > 0) setCategories(data.categories);
                 setLoading(false);
             }).catch((error) => {
                 console.error('items could not be obtained: ', error);
                 setLoading(false);
             });
         }
-    }, [keyword]);
+    }, [keyword, category]);
 
-    return {loading, items};
+    return {loading, items, categories};
 };
 
 export default useItems;

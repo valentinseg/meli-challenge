@@ -1,14 +1,11 @@
 const { findByQuery, findItemAndDescriptionById } = require("../../services/items");
-const { getCategories, getItems, getItem } = require("../../utils/items");
+const { getItems, getItem } = require("../../utils/items");
 
 const getItemsByQuery = (request, response) => {
-    const { q: query, limit } = request.query;
-    findByQuery(query, limit).then((resp) => {
-        const { available_filters: availableFilters, results } = resp.data;
-        response.json({
-            items: getItems(results),
-            categories: getCategories(availableFilters),
-        });
+    const { q: query, category, limit } = request.query;
+    findByQuery(query, category, limit).then((resp) => {
+        const { results } = resp.data;
+        response.json(getItems(results));
     }).catch((error) => {
         console.error('items could not be obtained: ', error.response);
         response.status(500).end();
@@ -22,6 +19,7 @@ const getItemById = (request, response) => {
         response.json({
             item: {
                 ...getItem(item),
+                category_id: item.category_id,
                 sold_quantity: item.sold_quantity,
                 description: description.plain_text,
             },

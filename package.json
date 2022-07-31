@@ -24,7 +24,6 @@
   },
   "scripts": {
     "start-server": "cross-env NODE_ENV=development nodemon api/server.js",
-    "start-server:prod": "cross-env NODE_ENV=production nodemon api/server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -1,14 +1,10 @@
 const axios = require('axios');
+const { axiosInstance } = require("./config");
 
-const axiosInstance = axios.create({
-    baseURL: 'https://api.mercadolibre.com',
-    responseType: 'json',
-});
-
-const findByQuery = (query, limitStr) => {
-    const params = {
-        q: query,
-    };
+const findByQuery = (query, category, limitStr) => {
+    const params = {};
+    if (query && query !== '') params.q = query;
+    if (category && category !== '') params.category = category;
     if (limitStr) {
         const limit = Number(limitStr);
         if (!isNaN(limit)) params.limit = limit;

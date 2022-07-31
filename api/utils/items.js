@@ -6,15 +6,35 @@ const getPrice = (price) => {
     };
 };
 
-const getCategories = (availableFilters) => {
-    const categoryFilter = availableFilters.find((filter) => filter.id = 'category');
-    if (categoryFilter === undefined) return [];
-    categoryFilter.values.sort((category, rightCategory) => rightCategory.results - category.results);
-    return categoryFilter.values.map((category) => category.id);
+const getCategories = (categoriesMap) => {
+    const categories = [...categoriesMap.values()];
+    categories.sort((category, rightCategory) => rightCategory.results - category.results);
+    return categories.map((category) => category.id);
 };
 
 const getItems = (results) => {
-    return results.map((result) => getItem(result));
+    const items = [];
+    const categoriesMap = new Map();
+    results.forEach((result) => {
+        items.push(getItem(result));
+        if (categoriesMap.has(result.category_id)) {
+            const elem = categoriesMap.get(result.category_id);
+            categoriesMap.set(result.category_id, {
+                ...elem,
+                results: elem.results + 1,
+            })
+        } else {
+            categoriesMap.set(result.category_id, {
+                id: result.category_id,
+                results: 1,
+            });
+        }
+    });
+
+    return {
+        items: items,
+        categories: getCategories(categoriesMap),
+    };
 };
 
 const getItem = (result) => {
@@ -39,7 +59,6 @@ const getItem = (result) => {
 };
 
 module.exports = {
-    getCategories,
     getItems,
     getItem,
 };

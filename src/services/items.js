@@ -1,19 +1,12 @@
-import axios from "axios";
+import { axiosInstance } from "./config";
 
-const axiosInstance = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
-    responseType: 'json',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-});
-
-export const getItemsByKeyword = (query, limit = 4) => {
+export const getItemsByKeyword = (query, category, limit = 4) => {
+    const params = {};
+    if (query && query !== '') params.q = query;
+    if (category && category !== '') params.category = category;
+    if (limit) params.limit = limit;
     return axiosInstance.get('/items', {
-        params: {
-            q: query,
-            limit: limit,
-        },
+        params,
     });
 };
 
