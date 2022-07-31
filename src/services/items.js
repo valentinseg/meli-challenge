@@ -8,11 +8,15 @@ const axiosInstance = axios.create({
     },
 });
 
-export const getItems = (query, limit = 4) => {
+export const getItemsByKeyword = (query, limit = 4) => {
     return axiosInstance.get('/items', {
         params: {
             q: query,
             limit: limit,
         },
     });
+};
+
+export const getItemById = (id) => {
+    return axiosInstance.get(`/items/${id}`);
 };

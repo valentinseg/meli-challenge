@@ -1,12 +1,12 @@
+@use 'src/global';
+
+$search-box-width: global.$container-width;
 $background-color: #FFE600;
 $font-size: 18px;
 $placeholder-color: #999999;
-$search-box-width: 80%;
 
 header {
   background-color: $background-color;
-  //display: flex;
-  //place-content: center;
 
   .search-box {
     display: flex;
@@ -49,6 +49,14 @@ header {
 
       .button-search {
         background-image: url('../../assets/ic_Search.png');
+        background-image: -webkit-image-set(
+          url('../../assets/ic_Search.png') 1x,
+          url('../../assets/ic_Search@2x.png') 2x
+        );
+        background-image: image-set(
+          url('../../assets/ic_Search.png') 1x,
+          url('../../assets/ic_Search@2x.png') 2x
+        );
         background-position: center;
         background-repeat: no-repeat;
         display: block;

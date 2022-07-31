@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import shipping from "../../assets/ic_shipping.png";
+import shipping from "../../../assets/ic_shipping.png";
+import shipping2x from "../../../assets/ic_shipping@2x.png";
 import "./styles.scss";
 
 const Item = ({ id, title, price, picture, free_shipping, address }) => {
@@ -18,7 +19,11 @@ const Item = ({ id, title, price, picture, free_shipping, address }) => {
                             <div className="item-price">
                                 $ {price.amount}
                                 {free_shipping && (
-                                    <img src={shipping} alt="Envío gratis" />
+                                    <img
+                                        srcSet={`${shipping}, ${shipping2x} 2x`}
+                                        src={shipping2x}
+                                        alt="Envío gratis"
+                                    />
                                 )}
                             </div>
                             <div className="item-title">

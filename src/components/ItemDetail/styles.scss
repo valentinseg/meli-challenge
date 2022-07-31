@@ -1,0 +1,80 @@
+@use 'src/global';
+
+$container-width: global.$container-width;
+$image-width: 680px;
+$content-width: 340px;
+$description-width: 680px;
+
+.item-detail {
+  background-color: white;
+  margin: 16px auto;
+  width: $container-width;
+
+  .item-detail-container {
+    display: flex;
+
+    .item-detail-picture {
+      width: $image-width;
+
+      img {
+        width: $image-width;
+      }
+    }
+
+    .item-detail-content {
+      margin: 32px auto 0;
+      width: $content-width;
+
+      .item-detail-header {
+        font-size: 14px;
+        margin-block-end: 16px;
+      }
+
+      .item-detail-title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-block-end: 32px;
+      }
+
+      .item-detail-price {
+        font-size: 46px;
+
+        sup {
+          font-size: 24px;
+        }
+      }
+
+      .item-detail-actions {
+        margin: 32px 32px 32px 0;
+
+        button {
+          background-color: #3483FA;
+          border-color: transparent;
+          border-radius: 4px;
+          width: 100%;
+          height: 48px;
+          color: white;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .item-detail-description {
+    padding: 32px;
+    width: $description-width;
+
+    h2 {
+      font-size: 28px;
+      margin-block-start: 0;
+      margin-block-end: 32px;
+      font-weight: normal;
+    }
+
+    p {
+      font-size: 16px;
+      color: #999999;
+      margin-block-end: 0;
+    }
+  }
+}
