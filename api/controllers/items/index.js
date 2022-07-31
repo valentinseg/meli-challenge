@@ -6,7 +6,7 @@ const getItemsByQuery = (request, response) => {
     findByQuery(query, limit).then((resp) => {
         const { available_filters: availableFilters, results } = resp.data;
         response.json({
-            ...getItems(results),
+            items: getItems(results),
             categories: getCategories(availableFilters),
         });
     }).catch((error) => {

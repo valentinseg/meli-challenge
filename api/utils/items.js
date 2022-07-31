@@ -8,8 +8,8 @@ const getCategories = (availableFilters) => {
 const getPrice = (price) => {
     const priceStr = price.toString().split('.');
     return {
-        amounts: Number(priceStr[0]),
-        decimals: Number(priceStr[1])
+        amount: Number(priceStr[0]),
+        decimals: Number(priceStr[1]) || 0,
     };
 };
 
@@ -18,7 +18,7 @@ const getItems = (results) => {
 };
 
 const getItem = (result) => {
-    const { id, title, price, currency_id, condition, thumbnail, shipping } = result;
+    const { id, title, price, currency_id, condition, thumbnail, shipping, address } = result;
     return {
         id: id,
         title: title,
@@ -26,9 +26,12 @@ const getItem = (result) => {
             currency: currency_id,
             ...getPrice(price),
         },
-        condition: condition,
         picture: thumbnail,
+        condition: condition,
         free_shipping: Boolean(shipping.free_shipping),
+        address: {
+            state: address.state_name,
+        },
     };
 };
 

@@ -1,12 +1,20 @@
 const express = require('express');
 const app = express();
 
-const { getAuthor } = require('./utils/author');
+const cors = require('cors');
+const config = require('./config/config.json');
+const configuration = config[process.env.NODE_ENV];
+app.use(cors({
+    origin: [configuration.frontendUrl],
+    methods: ['GET'],
+}));
+
+const { AUTHOR } = require('./utils/constants');
 
 const responseInterceptor = (req, res, next) => {
     let oldSend = res.json;
     res.json = (responseData) => {
-        responseData.author = getAuthor(); // signature
+        responseData.author = AUTHOR; // signature
         oldSend.apply(res, [responseData]);
     };
     next();

@@ -1,0 +1,8 @@
+.list-of-items {
+  width: 80%;
+  margin: 16px auto 0;
+
+  a:last-child .item .item-container {
+    border-bottom: none;
+  }
+}

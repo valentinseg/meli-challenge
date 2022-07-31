@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
-import logo from '../../assets/Logo_ML.png';
-import './styles.scss';
+import logo from "../../assets/Logo_ML.png";
+import "./styles.scss";
 
-const SearchBox = ({ handleSearch }) => {
-    const [keyword, setKeyword] = useState('');
+const SearchBox = ({ initialKeyword, handleSearch }) => {
+    const [keyword, setKeyword] = useState(initialKeyword || '');
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -37,6 +37,7 @@ const SearchBox = ({ handleSearch }) => {
 
 SearchBox.propTypes = {
     handleSearch: PropTypes.func.isRequired,
+    initialKeyword: PropTypes.string,
 };
 
 export default SearchBox;

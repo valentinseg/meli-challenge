@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { createSearchParams, useNavigate } from "react-router-dom";
 
 import SearchBox from "../../components/SearchBox";

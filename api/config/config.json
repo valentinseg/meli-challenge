@@ -1,8 +1,10 @@
 {
   "development": {
-    "port": 3001
+    "port": 3001,
+    "frontendUrl": "http://localhost:3000"
   },
   "production": {
-    "port": 4001
+    "port": 4001,
+    "frontendUrl": "http://localhost:3000"
   }
 }
