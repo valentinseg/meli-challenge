@@ -1,6 +1,5 @@
 @use 'src/global';
 
-$container-width: global.$container-width;
 $image-width: 680px;
 $content-width: 340px;
 $description-width: 680px;
@@ -8,7 +7,7 @@ $description-width: 680px;
 .item-detail {
   background-color: white;
   margin: 16px auto;
-  width: $container-width;
+  width: global.$container-width;
 
   .item-detail-container {
     display: flex;

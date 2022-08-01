@@ -22,4 +22,5 @@ Corre los tests de la aplicación.
 
 ## Comentarios
 
-- Se creó un endpoint extra para obtener una categoría por ID, para poder obtener el path de categorías (**path_from_root**) para el breadcrumb.
+- Se creó un endpoint extra para obtener una categoría por ID, con el fin de disponer del path de categorías (**path_from_root**) para el breadcrumb.
+- Se agregó el campo **address** al endpoint de obtener todos los items, ya que era necesario para desplegarlo en la vista.

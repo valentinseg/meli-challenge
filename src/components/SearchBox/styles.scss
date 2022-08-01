@@ -1,6 +1,5 @@
 @use 'src/global';
 
-$search-box-width: global.$container-width;
 $background-color: #FFE600;
 $font-size: 18px;
 $placeholder-color: #999999;
@@ -12,7 +11,7 @@ header {
     display: flex;
     align-items: center;
     margin: auto;
-    max-width: $search-box-width;
+    max-width: global.$container-width;
     padding: 8px 0;
   }
 

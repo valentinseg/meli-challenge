@@ -1,5 +1,7 @@
+@use 'src/global';
+
 .item-not-found {
-  width: 80%;
-  margin: 16px auto 0;
+  width: global.$container-width;
+  margin: 16px auto;
   text-align: center;
 }

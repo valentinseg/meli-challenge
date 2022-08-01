@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { CONDITIONS } from "../../utils/constants";
+import { CONDITIONS, CURRENCIES } from "../../utils/constants";
 import "./styles.scss";
 
 const ItemDetail = ({ item }) => {
@@ -11,17 +11,17 @@ const ItemDetail = ({ item }) => {
         <div className="item-detail">
             <div className="item-detail-container">
                 <div className="item-detail-picture">
-                    <img src={item.picture} alt="Imagen de item" />
+                    <img src={item.picture} alt="Imagen de item" width={680} height={680} />
                 </div>
                 <div className="item-detail-content">
                     <div className="item-detail-header">
-                        {CONDITIONS[item.condition]} - {item.sold_quantity} vendidos
+                        {`${CONDITIONS[item.condition]} - ${item.sold_quantity} vendidos`}
                     </div>
                     <div className="item-detail-title">
                         {item.title}
                     </div>
                     <div className="item-detail-price">
-                        $ {item.price.amount}
+                        {`${CURRENCIES[item.price.currency]} ${item.price.amount}`}
                         <sup>{decimalsStr}</sup>
                     </div>
                     <div className="item-detail-actions">

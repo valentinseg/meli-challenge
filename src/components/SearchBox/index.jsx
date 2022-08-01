@@ -37,6 +37,8 @@ const SearchBox = ({ initialKeyword, handleSearch }) => {
                     src={logo2x}
                     className="app-logo"
                     alt="Logo"
+                    width={53}
+                    height={36}
                 />
                 <form onSubmit={handleSubmit}>
                     <input

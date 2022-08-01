@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
+import { CURRENCIES } from "../../../utils/constants";
 import shipping from "../../../assets/ic_shipping.png";
 import shipping2x from "../../../assets/ic_shipping@2x.png";
 import "./styles.scss";
@@ -12,17 +13,19 @@ const Item = ({ id, title, price, picture, free_shipping, address }) => {
             <div className="item">
                 <div className="item-container">
                     <div className="item-picture">
-                        <img src={picture} alt="Imagen de item" />
+                        <img src={picture} alt="Imagen de item" width={180} height={180} />
                     </div>
                     <div className="item-content">
                         <div className="item-description">
                             <div className="item-price">
-                                $ {price.amount}
+                                {`${CURRENCIES[price.currency]} ${price.amount}`}
                                 {free_shipping && (
                                     <img
                                         srcSet={`${shipping}, ${shipping2x} 2x`}
                                         src={shipping2x}
                                         alt="Envío gratis"
+                                        width={18}
+                                        height={18}
                                     />
                                 )}
                             </div>

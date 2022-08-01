@@ -1,10 +1,8 @@
 @use 'src/global';
 
-$container-width: global.$container-width;
-
 .list-of-items {
   margin: 16px auto;
-  width: $container-width;
+  width: global.$container-width;
 
   a:last-child .item .item-container {
     border-bottom: none;
